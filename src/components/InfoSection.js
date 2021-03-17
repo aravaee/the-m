@@ -5,7 +5,10 @@ import { Button } from "./Button";
 const Section = styled.section`
   width: 100%;
   height: 100%;
-  padding: 4rem 0rem;
+  padding: 2rem 0rem;
+  @media screen and (max-width: 768px) {
+    padding: 1rem 0rem;
+  }
 `;
 const Container = styled.div`
   padding: 3rem calc((100vw - 1300px) / 2);
@@ -14,6 +17,8 @@ const Container = styled.div`
   grid-template-rows: 800px;
   @media screen and (max-width: 768px) {
     grid-template-columns: 1fr;
+    padding: 1rem calc((100vw - 1300px) / 2);
+    grid-template-rows: 485px;
   }
 `;
 const ColumnLeft = styled.div`
@@ -23,43 +28,39 @@ const ColumnLeft = styled.div`
   align-items: flex-start;
   line-height: 1.4;
   padding: 1rem 2rem;
-  order: ${({ reverse }) => (reverse ? '1' : '2')};
+  order: ${({ reverse }) => (reverse ? "1" : "2")};
   /* order: 2; */
-  @media screen and (max-width: 768px){
-    order: ${({ reverse }) => (reverse ? '2' : '1')};
+  @media screen and (max-width: 768px) {
+    order: ${({ reverse }) => (reverse ? "2" : "1")};
+    padding: 0rem 2rem;
   }
 
-  h1{
-      margin-bottom: 1rem;
-      font-size: clamp(1.5rem, 6vw, 2rem);
+  h1 {
+    margin-bottom: 1rem;
+    font-size: clamp(1.5rem, 6vw, 2rem);
   }
 
-  p{
+  p {
     margin-bottom: 2rem;
   }
 `;
 const ColumnRight = styled.div`
-  padding: 1rem 2rem;
-  order: ${({ reverse }) => (reverse ? '2' : '1')};
+  padding: 2rem 2rem 0 2rem;
+  order: ${({ reverse }) => (reverse ? "2" : "1")};
   display: flex;
   justify-content: center;
   align-items: center;
   /* transition-delay: {delay}; */
   transition-delay: 3s;
 
-  @media screen and (max-width: 768px){
-    order: ${({ reverse }) => (reverse ? '1' : '2')};
+  @media screen and (max-width: 768px) {
+    order: ${({ reverse }) => (reverse ? "1" : "2")};
   }
 
-  img{
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-
-      @media screen and (max-width: 768px){
-          width: 90%;
-          height: 90%;
-      }
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 `;
 
@@ -70,7 +71,7 @@ const InfoSection = ({
   buttonLabel,
   reverse,
   image,
-  delay
+  delay,
 }) => {
   return (
     <Section>
@@ -79,7 +80,9 @@ const InfoSection = ({
           <h1>{heading}</h1>
           <p>{paragraphOne}</p>
           <p>{paragraphTwo}</p>
-          <Button to="/cars" primary="false">{buttonLabel}</Button>
+          <Button to="/cars" primary="false">
+            {buttonLabel}
+          </Button>
         </ColumnLeft>
         <ColumnRight reverse={reverse} delay={delay}>
           <img src={image} alt=""></img>

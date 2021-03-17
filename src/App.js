@@ -3,7 +3,9 @@ import Dropdown from "./components/Dropdown";
 import Hero from "./components/Hero";
 import InfoSection from "./components/InfoSection";
 import Navbar from "./components/Navbar";
+import Signup from "./components/Signup";
 import { InfoData, InfoDataTwo } from "./data/InfoData";
+import { SignupData } from "./data/SignupData";
 import { SliderData } from "./data/SliderData";
 import GlobalStyle from "./globalStyle";
 
@@ -21,6 +23,8 @@ function App() {
 
       <InfoSection {...InfoData}/>
       <InfoSection {...InfoDataTwo}/>
+
+      <Signup {...SignupData}/>
       <InfoSection {...InfoData}/>
       <InfoSection {...InfoDataTwo}/>
 
